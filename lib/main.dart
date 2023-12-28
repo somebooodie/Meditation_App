@@ -4,6 +4,7 @@ void main() {
   runApp(const MyApp());
 }
 
+//wqkolednwqod oqwdoqw dopqw do qwdoqw doqw doqw
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 //test
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
-        //
+        //dsdsd
         // TRY THIS: Try running your application with "flutter run". You'll see
         // the application has a purple toolbar. Then, without quitting the app,
         // try changing the seedColor in the colorScheme below to Colors.green
