@@ -1,79 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:meditation_app/views/signup.dart';
+import 'package:provider/provider.dart';
 
-//test with fajri
+
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => TodoProvider(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+    ),
+  ], child: MyApp()));
 }
 
+// ChangeNotifierProvider(
+//   create: (context) => TodoProvider(),
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-//test
-// please work
+  MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routerConfig: _router,
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
+  final _router = GoRouter(routes: [
+    GoRoute(
+      path: "/home",
+      name: "home",
+      builder: (context, state) => MyHomePage(),
+    ),
+    // GoRoute(
+    //   path: "/addNote",
+    //   name: "addNote",
+    //   builder: (context, state) => AddNote(),
+    // ),
+    GoRoute(
+      path: "/signup",
+      name: 'signup',
+      builder: (context, state) => SignupPage(),
+    ),
+    // GoRoute(
+    //   path: "/",
+    //   name: 'splash',
+    //   builder: (context, state) => SplashScreen(),
+    ),
+    GoRoute(
+      path: "/signin",
+      name: "signin",
+      builder: (context, state) => SigninPage(),
+    ),
+  ]);
 }
