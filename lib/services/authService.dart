@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:todo_example_api_app/models/token.dart';
-import 'package:todo_example_api_app/models/user.dart';
-import 'package:todo_example_api_app/services/client.dart';
+import 'package:meditation_app/models/token.dart';
+import 'package:meditation_app/models/user.dart';
+import 'package:meditation_app/services/client.dart';
 
 class AuthService {
   Future<String> signup({required User user}) async {

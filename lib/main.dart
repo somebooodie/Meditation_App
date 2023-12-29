@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meditation_app/providrors/AuthProvider.dart';
+import 'package:meditation_app/providrors/TodoProvider.dart';
+import 'package:meditation_app/views/signin.dart';
 import 'package:meditation_app/views/signup.dart';
 import 'package:provider/provider.dart';
-
 
 void main() {
   runApp(MultiProvider(providers: [
@@ -35,11 +37,11 @@ class MyApp extends StatelessWidget {
   }
 
   final _router = GoRouter(routes: [
-    GoRoute(
-      path: "/home",
-      name: "home",
-      builder: (context, state) => MyHomePage(),
-    ),
+    // GoRoute(
+    //   path: "/home",
+    //   name: "home",
+    //   builder: (context, state) => MyHomePage(),
+    // ),
     // GoRoute(
     //   path: "/addNote",
     //   name: "addNote",
@@ -54,7 +56,7 @@ class MyApp extends StatelessWidget {
     //   path: "/",
     //   name: 'splash',
     //   builder: (context, state) => SplashScreen(),
-    ),
+    //),
     GoRoute(
       path: "/signin",
       name: "signin",
