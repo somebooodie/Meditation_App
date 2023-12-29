@@ -4,20 +4,6 @@ import 'package:meditation_app/models/user.dart';
 import 'package:meditation_app/services/client.dart';
 
 class AuthService {
-  // Future<String> signup({required User user}) async {
-  //   try {
-  //     if (user.userName.isNotEmpty && user.password.isNotEmpty) {
-  //       final Response response =
-  //           await ApiClient.dio.post("/signup", data: user.toJson());
-  //       // Removed the direct print statement
-  //       Token tokenModel = Token.fromJson(response.data);
-  //       return tokenModel.token?.toString() ?? "";
-  //     }
-  //     return "";
-  //   } catch (e) {
-  //     throw e.toString();
-  //   }
-  // }
   Future<String> signup({required User user}) async {
     try {
       final Response response =
@@ -25,7 +11,6 @@ class AuthService {
       print('API Response: ${response.data}'); // Debugging statement
 
       if (response.data != null && response.data['token'] != null) {
-        // Assuming the token is in the 'token' field of the response
         String token = response.data['token'];
         print('Received token: $token'); // Confirming token receipt
         return token;
@@ -41,12 +26,35 @@ class AuthService {
 
   Future<String> signin({required User user}) async {
     try {
+      print(
+          'Sending request with data: ${user.toJson()}'); // Log the request data
       final Response response =
           await ApiClient.dio.post("/signin", data: user.toJson());
-      Token tokenModel = Token.fromJson(response.data);
-      return tokenModel.token?.toString() ?? "";
+      print('API Response: ${response.data}'); // Debugging statement
+
+      if (response.data != null && response.data['token'] != null) {
+        String token = response.data['token'];
+        print('Received token: $token'); // Confirming token receipt
+        return token;
+      } else {
+        print('Signin response does not contain a token.');
+        return "";
+      }
     } catch (e) {
-      throw e.toString();
+      print('Signin error: $e'); // Debugging statement
+      return "";
     }
   }
 }
+
+//   Future signin({required User user}) async {
+//     try {
+//       final Response response =
+//           await ApiClient.dio.post("/signin", data: user.toJson());
+//       Token tokenModel = Token.fromJson(response.data);
+//       return tokenModel.token;
+//     } catch (e) {
+//       throw e.toString();
+//     }
+//   }
+// }

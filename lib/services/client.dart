@@ -19,6 +19,6 @@ class ApiClient {
   }
 }
 
-class NamedRoutes {
-  static final String login = "signin";
-}
+// class NamedRoutes {
+//   static final String login = "signin";
+// }

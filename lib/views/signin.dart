@@ -60,7 +60,7 @@ class _SigninPageState extends State<SigninPage> {
                     )
                     .then((token) {
                   if (token.isNotEmpty) {
-                    GoRouter.of(context).go('home');
+                    GoRouter.of(context).go('homePage');
                   } else {
                     _showErrorDialog();
                   }
