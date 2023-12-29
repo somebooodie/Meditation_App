@@ -27,6 +27,11 @@ class _SigninPageState extends State<SigninPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Sign in"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context
+              .goNamed('home'), // Replace 'home' with your home route name
+        ),
       ),
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -43,34 +48,51 @@ class _SigninPageState extends State<SigninPage> {
               controller: passwordController,
               obscureText: true,
             ),
-          ElevatedButton(
-  onPressed: () {
-    context
-        .read<AuthProvider>()
-        .signin(
-          user: User(
-            username: usernameController.text,
-            password: passwordController.text,
-          ),
-        )
-        .then((token) {
-      if (token.isNotEmpty) {
-        // Check if the token is not empty
-        context..to('home'); // Corrected method name
-      } else {
-        // Handle the case when the token is empty or invalid
-        // You can show an error message or take appropriate action.
-      }
-    });
-  },
-  child: const Text("Sign In"),
-)
-
+            ElevatedButton(
+              onPressed: () {
+                context
+                    .read<AuthProvider>()
+                    .signin(
+                      user: User(
+                        userName: usernameController.text,
+                        password: passwordController.text,
+                      ),
+                    )
+                    .then((token) {
+                  if (token.isNotEmpty) {
+                    GoRouter.of(context).go('home');
+                  } else {
+                    _showErrorDialog();
+                  }
+                }).catchError((error) {
+                  _showErrorDialog();
+                });
+              },
               child: const Text("Sign In"),
             )
           ],
         ),
       ),
+    );
+  }
+
+  void _showErrorDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Error"),
+          content: const Text("Username or password incorrect"),
+          actions: <Widget>[
+            TextButton(
+              child: const Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

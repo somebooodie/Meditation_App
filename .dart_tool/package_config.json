@@ -110,6 +110,42 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_secure_storage",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_linux",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/flutter_secure_storage_linux-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_macos",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/flutter_secure_storage_macos-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_platform_interface",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/flutter_secure_storage_platform_interface-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_web",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/flutter_secure_storage_web-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_windows",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/flutter_secure_storage_windows-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/somebooodie/CodedCourse/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -188,6 +224,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "js",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/js-0.6.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -234,6 +276,24 @@
       "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/path_provider-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "path_provider_android",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/path_provider_android-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "path_provider_foundation",
+      "rootUri": "file:///Users/somebooodie/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "path_provider_linux",
@@ -392,7 +452,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-29T15:07:40.519025Z",
+  "generated": "2023-12-29T18:38:35.840241Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }
