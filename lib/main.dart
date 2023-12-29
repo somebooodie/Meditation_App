@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meditation_app/providrors/AuthProvider.dart';
 import 'package:meditation_app/providrors/TodoProvider.dart';
+import 'package:meditation_app/views/HomePage.dart';
 import 'package:meditation_app/views/signin.dart';
 import 'package:meditation_app/views/signup.dart';
+import 'package:meditation_app/views/splash.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,7 +20,7 @@ void main() {
 }
 
 // ChangeNotifierProvider(
-//   create: (context) => TodoProvider(),
+//   create = (context) => TodoProvider(),
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -37,26 +39,26 @@ class MyApp extends StatelessWidget {
   }
 
   final _router = GoRouter(routes: [
-    // GoRoute(
-    //   path: "/home",
-    //   name: "home",
-    //   builder: (context, state) => MyHomePage(),
-    // ),
+    GoRoute(
+      path: "/home",
+      name: "home",
+      builder: (context, state) => MyHomePage(),
+    ),
     // GoRoute(
     //   path: "/addNote",
     //   name: "addNote",
     //   builder: (context, state) => AddNote(),
     // ),
+    // GoRoute(
+    //   path: "/signup",
+    //   name: 'signup',
+    //   builder: (context, state) => SignupPage(),
+    // ),
     GoRoute(
-      path: "/signup",
+      path: "/",
       name: 'signup',
       builder: (context, state) => SignupPage(),
     ),
-    // GoRoute(
-    //   path: "/",
-    //   name: 'splash',
-    //   builder: (context, state) => SplashScreen(),
-    //),
     GoRoute(
       path: "/signin",
       name: "signin",

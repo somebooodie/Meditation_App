@@ -13,7 +13,6 @@ class SigninPage extends StatefulWidget {
 
 class _SigninPageState extends State<SigninPage> {
   final usernameController = TextEditingController();
-
   final passwordController = TextEditingController();
 
   @override
@@ -44,21 +43,29 @@ class _SigninPageState extends State<SigninPage> {
               controller: passwordController,
               obscureText: true,
             ),
-            ElevatedButton(
-              onPressed: () {
-                context
-                    .read<AuthProvider>()
-                    .signin(
-                      user: User(
-                          username: usernameController.text,
-                          password: passwordController.text),
-                    )
-                    .then((token) {
-                  if (token.isNotEmpty) {
-                    context.pushNamed('home');
-                  }
-                });
-              },
+          ElevatedButton(
+  onPressed: () {
+    context
+        .read<AuthProvider>()
+        .signin(
+          user: User(
+            username: usernameController.text,
+            password: passwordController.text,
+          ),
+        )
+        .then((token) {
+      if (token.isNotEmpty) {
+        // Check if the token is not empty
+        context..to('home'); // Corrected method name
+      } else {
+        // Handle the case when the token is empty or invalid
+        // You can show an error message or take appropriate action.
+      }
+    });
+  },
+  child: const Text("Sign In"),
+)
+
               child: const Text("Sign In"),
             )
           ],
