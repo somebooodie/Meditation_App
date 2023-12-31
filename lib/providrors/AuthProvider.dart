@@ -1,72 +1,106 @@
 import 'package:flutter/material.dart';
+import 'package:meditation_app/models/token.dart';
 import 'package:meditation_app/models/user.dart';
 import 'package:meditation_app/services/authService.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:dio/dio.dart';
+
 class AuthProvider extends ChangeNotifier {
   final AuthService authService = AuthService();
-  String _token = "";
-  User? _currentUser;
+  String token = "";
+  String _username = "";
 
-  User? get currentUser => _currentUser;
-  bool get isAuthenticated => _token.isNotEmpty;
-
-  Future<String> signup({required User user}) async {
-    try {
-      _token = await authService.signup(user: user);
-      if (_token.isNotEmpty) {
-        _currentUser =
-            user.copyWith(password: ''); // Clear password for security
-        await saveTokenInStorage(_token);
-        notifyListeners();
-      }
-      return _token;
-    } catch (e) {
-      // Log or handle the error as needed
-      print('Signup Error: $e');
-      return '';
-    }
-  }
-
-  Future<String> signin({required User user}) async {
-    try {
-      _token = await authService.signin(user: user);
-      if (_token.isNotEmpty) {
-        _currentUser =
-            user.copyWith(password: ''); // Clear password for security
-        await saveTokenInStorage(_token);
-        notifyListeners();
-      }
-      return _token;
-    } catch (e) {
-      // Log or handle the error as needed
-      print('Signin Error: $e');
-      return '';
-    }
-  }
-
-  Future<void> saveTokenInStorage(String token) async {
-    SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-    await sharedPrefs.setString('token', token);
-  }
-
-  Future<void> readFromStorage() async {
-    SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-    _token = sharedPrefs.getString('token') ?? "";
-    if (_token.isNotEmpty) {
-      // Optionally retrieve user details using the token
-      // _currentUser = await fetchUserDetails();
-      notifyListeners();
-    }
-  }
-
-  Future<void> signout() async {
-    _token = '';
-    _currentUser = null;
-    SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-    await sharedPrefs.remove('token');
+  void setUsername(String username) {
+    _username = username;
+    // You might want to notify listeners if the UI depends on the username
     notifyListeners();
   }
 
-  // Add other relevant methods as needed
+  String getUserUsername() {
+    return _username;
+  }
+
+  Future<String> signup({required User user}) async {
+    token = await authService.signup(user: user);
+    saveTokenInStorage(token);
+    notifyListeners();
+    return token;
+  }
+
+  Future<String> signin({required User user}) async {
+    token = await authService.signin(user: user);
+    _username = user.username;
+    saveTokenInStorage(token);
+    notifyListeners();
+    return token;
+  }
+
+  Future<void> saveTokenInStorage(String token) async {
+    SharedPreferences shared = await SharedPreferences.getInstance();
+    shared.setString('token', token);
+  }
+
+  Future<String?> readTokenInStorage() async {
+    SharedPreferences shared = await SharedPreferences.getInstance();
+    return shared.getString('token');
+  }
+
+  Future<void> logout() async {
+    // Clear the token from the local storage
+    SharedPreferences shared = await SharedPreferences.getInstance();
+    await shared.remove('token');
+    token = "";
+    _username = ""; // Assuming you have a _username variable to clear as well
+    // Notify listeners that the user has logged out
+    notifyListeners();
+  }
+
+  // Future<bool> updateProfile(String username, String password) async {
+  //   // Read token from storage or use the current token in memory
+  //   String? storedToken = await readTokenInStorage();
+  //   if (storedToken != null && storedToken.isNotEmpty) {
+  //     bool success = await authService.updateProfile(
+  //         username: username, password: password, token: storedToken);
+  //     if (success) {
+  //       // Update the username in local storage if needed
+  //       _username = username;
+  //       notifyListeners();
+  //     }
+  //     return success;
+  //   }
+  //   return false;
+  // }
+
+  Future<bool> updateProfile(String username, String password) async {
+    String? storedToken = await readTokenInStorage();
+    if (storedToken == null || storedToken.isEmpty) {
+      throw Exception('Authentication token not found.');
+    }
+
+    try {
+      bool success = await authService.updateProfile(
+        username: username,
+        password: password,
+        token: storedToken,
+      );
+
+      if (success) {
+        _username = username;
+        notifyListeners();
+        return true;
+      } else {
+        // You can throw a more specific exception if needed
+        throw Exception(
+            'Failed to update the profile. The server response was unsuccessful.');
+      }
+    } on DioError catch (dioError) {
+      // Handle DioError specifically if you want to extract response data
+      throw Exception(
+          'Failed to update profile: ${dioError.response?.data['message'] ?? dioError.message}');
+    } catch (e) {
+      // Any other exception that might occur
+      rethrow; // This will pass the exception back to the caller
+    }
+  }
 }

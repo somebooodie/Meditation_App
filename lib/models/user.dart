@@ -1,52 +1,40 @@
 import 'dart:convert';
 
 class User {
-  final String userName;
-  final String? image;
-  final int? finishedExercises;
-  final String? userEmail; // Optional
+  final int? id;
+  final String username;
   final String password;
 
   User({
-    required this.userName,
-    this.image,
-    this.finishedExercises,
-    this.userEmail,
+    this.id,
+    required this.username,
     required this.password,
   });
 
   User copyWith({
-    String? userName,
-    String? image,
-    int? finishedExercises,
-    String? userEmail,
+    int? id,
+    String? username,
     String? password,
   }) {
     return User(
-      userName: userName ?? this.userName,
-      image: image ?? this.image,
-      finishedExercises: finishedExercises ?? this.finishedExercises,
-      userEmail: userEmail ?? this.userEmail,
+      id: id ?? this.id,
+      username: username ?? this.username,
       password: password ?? this.password,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'userName': userName,
-      'image': image,
-      'finishedExercises': finishedExercises,
-      'userEmail': userEmail,
+      'id': id,
+      'username': username,
       'password': password,
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      userName: map['userName'] as String,
-      image: map['image'] as String,
-      finishedExercises: map['finishedExercises'] as int,
-      userEmail: map['userEmail'] as String?,
+      id: map['id'] != null ? map['id'] as int : null,
+      username: map['username'] as String,
       password: map['password'] as String,
     );
   }
@@ -57,26 +45,18 @@ class User {
       User.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() {
-    return 'User(userName: $userName, image: $image, finishedExercises: $finishedExercises, userEmail: $userEmail, password: $password)';
-  }
+  String toString() =>
+      'User(id: $id, username: $username, password: $password)';
 
   @override
   bool operator ==(covariant User other) {
     if (identical(this, other)) return true;
 
-    return other.userName == userName &&
-        other.image == image &&
-        other.finishedExercises == finishedExercises &&
-        other.userEmail == userEmail &&
+    return other.id == id &&
+        other.username == username &&
         other.password == password;
   }
 
   @override
-  int get hashCode =>
-      userName.hashCode ^
-      image.hashCode ^
-      finishedExercises.hashCode ^
-      userEmail.hashCode ^
-      password.hashCode;
+  int get hashCode => id.hashCode ^ username.hashCode ^ password.hashCode;
 }

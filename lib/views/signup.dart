@@ -4,21 +4,21 @@ import 'package:meditation_app/models/user.dart';
 import 'package:meditation_app/providrors/AuthProvider.dart';
 import 'package:provider/provider.dart';
 
-class SignupPage extends StatefulWidget {
-  SignupPage({Key? key}) : super(key: key);
+import 'package:flutter/scheduler.dart';
 
+class SignUpPage extends StatefulWidget {
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
-  final passwordController = TextEditingController();
-  final usernameController = TextEditingController();
+class _SignUpPageState extends State<SignUpPage> {
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    usernameController.dispose();
-    passwordController.dispose();
+    _usernameController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -26,68 +26,56 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign up"),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.goNamed('home'),
-        ),
+        title: Text('Sign Up'),
       ),
-      resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            const Text("Sign Up"),
-            TextField(
-              decoration: const InputDecoration(hintText: 'Username'),
-              controller: usernameController,
-            ),
-            TextField(
-              decoration: const InputDecoration(hintText: 'Password'),
-              controller: passwordController,
-              obscureText: true,
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                final User user = User(
-                    userName: usernameController.text,
-                    password: passwordController.text);
-                String token =
-                    await context.read<AuthProvider>().signup(user: user);
-                if (token.isNotEmpty) {
-                  // Navigate to the sign-in page after successful sign-up
-                  context.goNamed("signin");
-                } else {
-                  // Show an error dialog if sign-up fails
-                  _showErrorDialog();
-                }
-              },
-              child: const Text("Sign Up"),
-            )
-          ],
-        ),
-      ),
-    );
-  }
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(labelText: 'Username'),
+              ),
+              SizedBox(height: 16.0),
+              TextField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: InputDecoration(labelText: 'Password'),
+              ),
+              SizedBox(height: 32.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Perform sign-up logic here
+                  final User user = User(
+                    username: _usernameController.text,
+                    password: _passwordController.text,
+                  );
 
-  void _showErrorDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Sign Up Failed"),
-          content: const Text("Failed to create an account. Please try again."),
-          actions: <Widget>[
-            TextButton(
-              child: const Text("Close"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
+                  context.read<AuthProvider>().signup(user: user).then((token) {
+                    if (token.isNotEmpty) {
+                      // Navigate back to the sign-in page and pop the sign-up page from the stack
+                      GoRouter.of(context).goNamed("signin");
+                      Navigator.pop(context);
+                    }
+                  });
+                },
+                child: Text('Sign Up'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  GoRouter.of(context).go("/signin");
+                },
+                child: Text('Already have an account?'),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

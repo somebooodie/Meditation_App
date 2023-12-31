@@ -1,63 +1,74 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meditation_app/pages/home_page.dart';
-import 'package:provider/provider.dart';
+import 'package:meditation_app/pages/profile_page.dart';
+import 'package:meditation_app/pages/tips_page.dart';
 import 'package:meditation_app/providrors/AuthProvider.dart';
+import 'package:meditation_app/views/splash.dart';
+import 'package:provider/provider.dart';
 import 'package:meditation_app/views/StaticPage.dart';
 import 'package:meditation_app/views/signin.dart';
 import 'package:meditation_app/views/signup.dart';
-// ... other necessary imports
+import 'package:meditation_app/providrors/ThemeProvider.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (context) => AuthProvider()),
-    ],
-    child: MyApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
+        ChangeNotifierProvider(
+            create: (context) =>
+                ThemeProvider(ThemeData.light())), // Added ThemeProvider
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp.router(
-      title: 'Meditation App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      routerConfig: GoRouter(
-        routes: [
-          GoRoute(
-            path: "/",
-            name: "home",
-            builder: (context, state) {
-              final authProvider =
-                  Provider.of<AuthProvider>(context, listen: false);
-              if (authProvider.isAuthenticated) {
-                // Navigate to the HomePage with the current user data
-                return HomePage(authProvider.currentUser!);
-              } else {
-                // Navigate to the StaticPage if not authenticated
-                return MyStaticPage();
-              }
-            },
-          ),
-          GoRoute(
-            path: "/signup",
-            name: 'signup',
-            builder: (context, state) => SignupPage(),
-          ),
-          GoRoute(
-            path: "/signin",
-            name: "signin",
-            builder: (context, state) => SigninPage(),
-          ),
-          // ... other routes
-        ],
-      ),
+      title: 'Flutter Demo',
+      theme: themeProvider.getTheme(),
+      routerConfig: _router,
     );
   }
+
+  final _router = GoRouter(routes: [
+    GoRoute(
+      path: '/homepage',
+      name: 'homepage',
+      builder: (context, state) => MyHomePage(),
+    ),
+    GoRoute(
+      path: "/",
+      name: "SplashScreen",
+      builder: (context, state) => SplashScreen(),
+    ),
+    GoRoute(
+      path: "/signup",
+      name: 'signup',
+      builder: (context, state) => SignUpPage(),
+    ),
+    GoRoute(
+      path: "/signin",
+      name: "signin",
+      builder: (context, state) => SignInPage(),
+    ),
+    GoRoute(
+      path: '/profile',
+      name: 'profile',
+      builder: (context, state) => const ProfilePage(),
+    ),
+    GoRoute(
+      path: '/tips',
+      name: 'tips',
+      builder: (context, state) => TipsPage(),
+    ),
+  ]);
 }

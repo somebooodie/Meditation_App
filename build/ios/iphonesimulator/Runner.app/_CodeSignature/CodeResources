@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		vv3ByDSy4LAJO7k+CGi3jpp+FmE=
+		yD/iJtUCrpI/vvgAUjDYqiI3y+A=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		3TYCUL5mJTyr9uILbbYlvbJWNLc=
+		e/sDByw1ll/j4iUrKi9UGecO/wg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		ME0cAg6cl/bTZmwXEVgMugDccUI=
+		9dA7cGR0nQrem1gAnTDgwCn+uKQ=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+		pSS23BaPSLOtf0iMpvu7KYLO8QY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -71,6 +71,22 @@
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
 		fRKAB1qJnnwsa502DY1WK10gg/s=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/meditation.png</key>
+		<data>
+		6De8p2hnNZvjXIoLq+ApFcwdh9U=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/music.png</key>
+		<data>
+		Dpn0diN+R2nq8JhAhcv7P8/2knc=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/tips.png</key>
+		<data>
+		9ddHb3MZPTI16mXSYG7J88B7Buk=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/yoga.png</key>
+		<data>
+		qkKR52l4OvLvy+4KauVQ1I4Hd5c=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -82,7 +98,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		olG9ci5rqAKL5Srp1gu/CTETMqY=
+		4jsUmc/ocjEVsDNBXx3mDRMsrzo=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -190,7 +206,7 @@
 		</data>
 		<key>Frameworks/flutter_secure_storage.framework/flutter_secure_storage</key>
 		<data>
-		bdKcWjpU+TlH8swMsjro3n7NGx0=
+		BdxlG/L15j9IXnGq0WPp3bLz2Mo=
 		</data>
 		<key>Frameworks/image_picker_ios.framework/Info.plist</key>
 		<data>
@@ -202,7 +218,7 @@
 		</data>
 		<key>Frameworks/image_picker_ios.framework/image_picker_ios</key>
 		<data>
-		+RqsNxbKJ69iq9IjZNFPpPo709A=
+		lyybFI5tD9r8KlV+Z/a4b00/k84=
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<data>
@@ -214,7 +230,7 @@
 		</data>
 		<key>Frameworks/path_provider_foundation.framework/path_provider_foundation</key>
 		<data>
-		rh50I3UbwlZct/QlUtECdtzMl7c=
+		9U/4SGajlfzUuPFN+4UlvjhCcug=
 		</data>
 		<key>Frameworks/shared_preferences_foundation.framework/Info.plist</key>
 		<data>
@@ -226,7 +242,7 @@
 		</data>
 		<key>Frameworks/shared_preferences_foundation.framework/shared_preferences_foundation</key>
 		<data>
-		1075UCoR1JuSsnTmBvmNF7Q37E0=
+		stHhlQj+7UehzSI8IC5tsx3+Rxs=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -313,7 +329,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/rCwB8G+bAZW5kJMDT6ouBOwAakrRIiCa6bCFs8OEJs=
+			AvAq4OGcbOgQzkkr7MfijSZR6E+qOXAg9TPreHxRuFY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -327,21 +343,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			u4kc5SgK2r/VwDpDOnNqoNdBhEo1HPvfj1p0EaOTpkE=
+			H+KORxLAK09KdqftxIxK2jWkMK07ShxaIadTpMIcjbs=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AK9VrT1vIYmP534P8JLRoc2lLJQbaGDpko1FyK+MCV0=
+			V+T1ZIf7ncRB041JnyyI9opxTnSOxCZj0oHDGKbMwWQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Sps95+7JukayebvM0TLjL1LW1VXXndpKp/O8tOm9ZR8=
+			jWoDNocxFxSoyMu5/djLU5QgOkFDJYuXNMKnJPg0tUI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -356,6 +372,34 @@
 			<key>hash2</key>
 			<data>
 			ygZS1N5pR9XWKGveIdc6OCPeN7pPM8+F5UUCXUuRKiY=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/meditation.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			80qd+sEaX1HB5qlIFQ3sWeDitQPMiQsAwjiNwvXg5kQ=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/music.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YXViD2XkRlJTzgWwbYJ3HEirZibCojnULdaFDB5WtQI=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/tips.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			a63/gimCcRseeWjM631TIk0nhXhHrS9sg/QBCPoXiQw=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/yoga.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			g5Gpg3/EDXbjmuyNLagp13wHUun7J5Zb32p0qqkIDJQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -376,7 +420,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			l4bEyRWgYj2jG1e9EsDt7QB0IiydHPu5d6/FYcAJNek=
+			IId3BasAjB1E4BXt16XVOXKnadddYdGN4zZgs3+qaac=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -565,7 +609,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5u/4FCGueLusglnF3l132QHMbIWMFMod5OLbyM86VPc=
+			C6Cj0nIZ5sUNawXq4WqVeIomLxr1zwaBlzKI8429L4A=
 			</data>
 		</dict>
 		<key>Frameworks/image_picker_ios.framework/Info.plist</key>
@@ -586,7 +630,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iGfGCcAZxSida3+cx9JO7altHChbwYtvnj0JYJmBIiQ=
+			IxYHCgbpntnS/9PeW7CgBerLoDix1uC9YxV3HTvkuRk=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
@@ -607,7 +651,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LRVdUwTJWDSPLTn8KVPktvvMYafdCKohK5PqVW+/E84=
+			9VfBFOK5w1YdDdyU1vboF/O321kJAHfmTR/3P+xlrDI=
 			</data>
 		</dict>
 		<key>Frameworks/shared_preferences_foundation.framework/Info.plist</key>
@@ -628,7 +672,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oqCuZYhhs2RjFQCKD950SU+zjFJbpsjbSq3MlMBjmEs=
+			Jxh2baXxFzdb/MoWbOQzP75r7b+eq2ave4FenRDDNNU=
 			</data>
 		</dict>
 	</dict>

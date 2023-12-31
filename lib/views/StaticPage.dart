@@ -3,16 +3,16 @@ import 'package:go_router/go_router.dart';
 import 'package:meditation_app/models/user.dart';
 
 class MyStaticPage extends StatelessWidget {
-  final User? currentUser;
+  final User currentUser; // Change User to UserCredentials
 
-  const MyStaticPage({Key? key, this.currentUser}) : super(key: key);
+  const MyStaticPage({Key? key, required this.currentUser}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Meditation App"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.yellow,
       ),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -20,7 +20,7 @@ class MyStaticPage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.purple, Colors.blue],
+            colors: [Colors.black, Colors.blue],
           ),
         ),
         child: Center(
