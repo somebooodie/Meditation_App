@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meditation_app/models/tip.dart';
-import 'package:meditation_app/models/user.dart';
-import 'package:meditation_app/pages/profile_page.dart';
+// import 'package:meditation_app/models/tip.dart';
+// import 'package:meditation_app/models/user.dart';
+// import 'package:meditation_app/pages/profile_page.dart';
 import 'package:meditation_app/providrors/AuthProvider.dart';
-import 'package:meditation_app/widgets/meditation.dart';
-import 'package:meditation_app/widgets/music.dart';
-import 'package:meditation_app/widgets/tips.dart';
-import 'package:meditation_app/widgets/yoga.dart';
+// import 'package:meditation_app/widgets/meditation.dart';
+// import 'package:meditation_app/widgets/music.dart';
+// import 'package:meditation_app/widgets/tips.dart';
+// import 'package:meditation_app/widgets/yoga.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -34,8 +34,7 @@ class MyHomePage extends StatelessWidget {
             childAspectRatio:
                 (1 / 1), // Adjust the size ratio of the cards here
             children: <Widget>[
-              _buildCard(
-                  context, 'Tips', 'assets/images/tips.png', '/tips_page'),
+              _buildCard(context, 'Tips', 'assets/images/tips.png', '/tips'),
               _buildCard(
                   context, 'Yoga', 'assets/images/yoga.png', '/yoga_page'),
               _buildCard(
@@ -54,7 +53,7 @@ class MyHomePage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'Tips',
+            label: 'Exercise',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -72,9 +71,9 @@ class MyHomePage extends StatelessWidget {
                   .go('/home'); // Make sure '/home' is defined in your routes
               break;
             case 1:
-              // Navigate to Favorites page
+              // Navigate to Exercise page
               context.go(
-                  '/tips'); // Replace with the correct route for the Favorites page
+                  '/exercise'); // Replace with the correct route for the Exercise page
               break;
             case 2:
               // Navigate to Profile page

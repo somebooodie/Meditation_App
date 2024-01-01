@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meditation_app/pages/Exercise_page.dart';
 import 'package:meditation_app/pages/home_page.dart';
+import 'package:meditation_app/pages/meditation_page.dart';
+import 'package:meditation_app/pages/music_page.dart';
 import 'package:meditation_app/pages/profile_page.dart';
 import 'package:meditation_app/pages/tips_page.dart';
+import 'package:meditation_app/pages/yoga_page.dart';
 import 'package:meditation_app/providrors/AuthProvider.dart';
 import 'package:meditation_app/views/splash.dart';
 import 'package:provider/provider.dart';
-import 'package:meditation_app/views/StaticPage.dart';
+// import 'package:meditation_app/views/StaticPage.dart';
 import 'package:meditation_app/views/signin.dart';
 import 'package:meditation_app/views/signup.dart';
 import 'package:meditation_app/providrors/ThemeProvider.dart';
@@ -69,6 +73,26 @@ class MyApp extends StatelessWidget {
       path: '/tips',
       name: 'tips',
       builder: (context, state) => TipsPage(),
+    ),
+    GoRoute(
+      path: '/exercise',
+      name: 'exercise',
+      builder: (context, state) => ExercisePage(),
+    ),
+    GoRoute(
+      path: '/yoga_page',
+      name: 'yoga_page',
+      builder: (context, state) => YogaPage(),
+    ),
+    GoRoute(
+      path: '/music_page',
+      name: 'music_page',
+      builder: (context, state) => MusicPage(),
+    ),
+    GoRoute(
+      path: '/meditation_page',
+      name: 'meditation_page',
+      builder: (context, state) => MeditatPage(),
     ),
   ]);
 }
